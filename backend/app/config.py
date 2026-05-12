@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     model_config = ConfigDict(env_file=".env", env_file_encoding="utf-8")
 
     # JWT
-    secret_key: str = "supersecretkey_change_in_production"
+    secret_key: str = "INSECURE_DEFAULT_CHANGE_ME"
     algorithm: str = "HS256"
     access_token_expire_seconds: int = 300
     refresh_token_expire_seconds: int = 86400  # 24 hours

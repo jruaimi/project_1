@@ -19,7 +19,7 @@ from app.schemas import AccessTokenResponse, RefreshRequest, TokenResponse, User
 
 logger = logging.getLogger(__name__)
 
-_DEFAULT_SECRET = "supersecretkey_change_in_production"
+_DEFAULT_SECRET = "INSECURE_DEFAULT_CHANGE_ME"
 
 
 @asynccontextmanager
