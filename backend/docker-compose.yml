@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jwt_api
+    ports:
+      - "8000:8000"
+    environment:
+      # Override any setting from app/config.py via environment variables.
+      # SECRET_KEY should always be set to a strong random value in production.
+      - SECRET_KEY=supersecretkey_change_in_production
+      - ACCESS_TOKEN_EXPIRE_SECONDS=300
+      - REFRESH_TOKEN_EXPIRE_SECONDS=86400
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/docs')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
