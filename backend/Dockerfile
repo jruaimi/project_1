@@ -3,17 +3,14 @@ FROM python:3.11-slim AS builder
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1 \
-    POETRY_VERSION=1.8.3 \
-    POETRY_HOME="/opt/poetry" \
-    POETRY_VIRTUALENVS_IN_PROJECT=true \
-    POETRY_NO_INTERACTION=1
+    PIP_NO_CACHE_DIR=1
 
-RUN pip install "poetry==${POETRY_VERSION}"
+RUN python -m venv /app/.venv
 
 WORKDIR /app
-COPY pyproject.toml poetry.lock* ./
-RUN /opt/poetry/bin/poetry install --only main --no-root
+COPY requirements.txt ./
+RUN /app/.venv/bin/pip install --upgrade pip && \
+    /app/.venv/bin/pip install -r requirements.txt
 
 # ── Runtime stage ──────────────────────────────────────────────────────────────
 FROM python:3.11-slim AS runtime

@@ -54,17 +54,17 @@ docker compose up --build
 
 The API will be available at <http://localhost:8000>.
 
-### Option B – Local development with Poetry
+### Option B – Local development with pip
 
-**Prerequisites:** Python 3.11+, [Poetry](https://python-poetry.org/docs/#installation)
+**Prerequisites:** Python 3.11+
 
 ```bash
 # Install dependencies
 cd backend
-poetry install
+pip install -r requirements.txt
 
 # Run the development server
-poetry run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ---
@@ -134,8 +134,8 @@ curl -X POST http://localhost:8000/auth/refresh \
 
 ```bash
 cd backend
-poetry install
-poetry run pytest -v
+pip install -r requirements-dev.txt
+pytest -v
 ```
 
 ---
