@@ -255,6 +255,152 @@ export default function WelcomePage() {
               ))}
             </div>
 
+            {/* Microsoft Certifications 2026 */}
+            <div style={{ marginBottom: '32px' }}>
+              <div style={{ marginBottom: '20px' }}>
+                <p
+                  style={{
+                    fontSize: '13px',
+                    fontWeight: 500,
+                    color: '#64748B',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Microsoft Learn
+                </p>
+                <h2
+                  style={{
+                    fontSize: '22px',
+                    fontWeight: 600,
+                    color: '#0F172A',
+                    letterSpacing: '-0.015em',
+                    marginBottom: '4px',
+                  }}
+                >
+                  Microsoft Certifications 2026
+                </h2>
+                <p style={{ fontSize: '14px', color: '#64748B', lineHeight: '22px' }}>
+                  Latest certifications from Microsoft for 2026 — validate your skills in Azure, AI, Security, and Microsoft 365.
+                </p>
+              </div>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                  gap: '16px',
+                }}
+              >
+                {[
+                  {
+                    code: 'AZ-104',
+                    level: 'Associate',
+                    levelColor: '#2563EB',
+                    levelBg: '#EFF6FF',
+                    name: 'Microsoft Azure Administrator',
+                    description: 'Validate skills in implementing, managing, and monitoring an organization\'s Microsoft Azure environment, including virtual networks, storage, compute, identity, and governance.',
+                    url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/',
+                  },
+                  {
+                    code: 'AI-900',
+                    level: 'Fundamentals',
+                    levelColor: '#7C3AED',
+                    levelBg: '#F5F3FF',
+                    name: 'Microsoft Azure AI Fundamentals',
+                    description: 'Demonstrate foundational knowledge of machine learning and AI concepts, and how they are implemented using Azure services such as Azure AI Vision, Azure AI Language, and Azure OpenAI Service.',
+                    url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/',
+                  },
+                  {
+                    code: 'SC-401',
+                    level: 'Associate',
+                    levelColor: '#DC2626',
+                    levelBg: '#FEF2F2',
+                    name: 'Administering Information Security in Microsoft 365',
+                    description: 'Updated for 2026: covers AI security controls, Data Security Posture Management (DSPM) for AI, Microsoft Purview, and protecting content in AI-enabled Microsoft 365 environments.',
+                    url: 'https://learn.microsoft.com/en-us/credentials/certifications/information-security-administrator/',
+                  },
+                  {
+                    code: 'AZ-305',
+                    level: 'Expert',
+                    levelColor: '#D97706',
+                    levelBg: '#FFFBEB',
+                    name: 'Designing Microsoft Azure Infrastructure Solutions',
+                    description: 'Design cloud and hybrid solutions running on Azure, including compute, network, storage, monitoring, and identity. Recommended for experienced Azure architects.',
+                    url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/',
+                  },
+                  {
+                    code: 'MS-102',
+                    level: 'Associate',
+                    levelColor: '#059669',
+                    levelBg: '#ECFDF5',
+                    name: 'Microsoft 365 Administrator',
+                    description: 'Manage Microsoft 365 services, user identity and access, compliance policies, and security for an enterprise Microsoft 365 environment.',
+                    url: 'https://learn.microsoft.com/en-us/credentials/certifications/m365-administrator-expert/',
+                  },
+                  {
+                    code: 'MS-721',
+                    level: 'Associate',
+                    levelColor: '#2563EB',
+                    levelBg: '#EFF6FF',
+                    name: 'Collaboration Communications Systems Engineer',
+                    description: 'New in 2026: plan, deploy, configure, and manage Teams Phone, meetings, and certified devices. Added as a skilling option for the Calling for Microsoft Teams specialization.',
+                    url: 'https://learn.microsoft.com/en-us/credentials/certifications/m365-collaboration-communications-systems-engineer/',
+                  },
+                ].map((cert) => (
+                  <div key={cert.code} style={cardShellStyle}>
+                    <div style={{ ...cardInnerStyle, padding: '20px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '180px' }}>
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                          <span
+                            style={{
+                              fontSize: '11px',
+                              fontWeight: 600,
+                              color: cert.levelColor,
+                              background: cert.levelBg,
+                              padding: '3px 8px',
+                              borderRadius: '4px',
+                              letterSpacing: '0.04em',
+                              textTransform: 'uppercase',
+                            }}
+                          >
+                            {cert.level}
+                          </span>
+                          <span style={{ fontSize: '12px', fontWeight: 600, color: '#94A3B8', fontFamily: 'monospace' }}>{cert.code}</span>
+                        </div>
+                        <p style={{ fontSize: '14px', fontWeight: 600, color: '#0F172A', marginBottom: '8px', lineHeight: '20px' }}>{cert.name}</p>
+                        <p style={{ fontSize: '13px', color: '#64748B', lineHeight: '19px' }}>{cert.description}</p>
+                      </div>
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          marginTop: '16px',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontSize: '13px',
+                          fontWeight: 500,
+                          color: '#2563EB',
+                          textDecoration: 'none',
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none'; }}
+                      >
+                        Learn more
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Account details card */}
             <div style={cardShellStyle}>
               <div style={cardInnerStyle}>
